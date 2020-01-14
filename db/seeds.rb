@@ -1,0 +1,1 @@
+Book.create(title: "Test", author: "Test")

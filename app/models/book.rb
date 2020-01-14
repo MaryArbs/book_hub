@@ -1,3 +1,4 @@
 class Book < ActiveRecord::Base
-    belongs_to :users
+    has_many :saves
+    has_many :users, through: :saves
   end
