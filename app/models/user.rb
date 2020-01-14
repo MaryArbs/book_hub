@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-    belongs_to :book
+    has_many :book
+    has_secure_password
   end
