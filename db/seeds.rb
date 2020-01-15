@@ -1,3 +1,3 @@
-Book.destroy_all 
+# Book.destroy_all 
 
-Scraper.run
+# Scraper.run
