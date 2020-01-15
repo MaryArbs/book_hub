@@ -1,1 +1,3 @@
-Book.create(title: "Test", author: "Test")
+Book.destroy_all 
+
+Scraper.run
