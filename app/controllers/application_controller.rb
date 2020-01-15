@@ -1,70 +1,32 @@
 require './config/environment'
 
+
 class ApplicationController < Sinatra::Base
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    set :session_secret, "i_love_books"
   end
 
-  get "/" do
-    erb :homepage
-  end
-
-  # get "/signup" do
-  #   erb :signup
-  # end
-
-  # post "/signup" do
-  #   if params[:username].empty?
-  #     redirect to '/failure'
-  #   end
-
-  #   user = User.new(:username => params[:username], :password => params[:password])
-  #   if user.save
-  #     redirect '/login'
-  #   else
-  #     redirect '/failure'
-  #   end
-  # end
-
-  # get '/account' do
-  #   @user = User.find(session[:user_id])
-  #   erb :account
-  # end
+     get "/" do
+      erb :homepage
+     end 
+  
+      get "/signup" do
+        erb :'user/signup'
+      end
 
 
-  # get "/login" do
-  #   erb :login
-  # end
-
-  # post "/login" do
-  #   user = User.find_by(:username => params[:username])
-
-  #  if user && user.authenticate(params[:password])
-  #   session[:user_id] = user.id
-  #   redirect to "/account"
-  #  else
-  #   redirect to "/failure"
-  #  end
-  # end
-
-  # get "/failure" do
-  #   erb :failure
-  # end
-
-  # get "/logout" do
-  #   session.clear
-  #   redirect "/"
-  # end
-
-  # get '/book-display' do 
-  #   @books = Book.all
-  #   @users = User.all
-  #   erb :'books/book-display'
-  end 
-
+ 
   helpers do
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect "/login?error=You have to be logged in to do that"
+      end
+    end
+
     def logged_in?
       !!session[:user_id]
     end
@@ -73,5 +35,7 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
   end
+
+end
 
 

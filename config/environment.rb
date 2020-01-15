@@ -9,7 +9,9 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
+# require './app/controllers/books_controller'
+# require './app/controllers/users_controller'
 require_all 'app'
 
-require 'open-uri'
-require 'nokogiri'
+
+

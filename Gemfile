@@ -12,6 +12,8 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'nokogiri'
+gem 'open_uri_redirections', '~> 0.2.1'
+
 
 group :test do
   gem 'rspec'
