@@ -4,19 +4,15 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :public_folder, 'public'
     set :views, 'app/views'
+    set :public_folder, 'public'
     enable :sessions
     set :session_secret, "i_love_books"
   end
 
-     get "/" do
-      erb :homepage
-     end 
-  
-      get "/signup" do
-        erb :'user/signup'
-      end
+  get "/" do
+    "HIIII"
+  end 
 
 
  

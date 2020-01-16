@@ -1,13 +1,14 @@
 require './config/environment'
 
-class UsersController < Sinatra::Base
+class UsersController < ApplicationController
 
 
-  get "/signup" do
+  get '/signup' do
     erb :'user/signup'
   end
 
   post "/signup" do
+    
     if params[:username].empty?
       redirect to '/signup'
     end

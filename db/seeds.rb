@@ -1,3 +1,5 @@
-# Book.destroy_all 
+Book.destroy_all 
+scraper = Scraper.new
+scraper.scrape_books
 
-# Scraper.run
+binding.pry
