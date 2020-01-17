@@ -1,0 +1,17 @@
+<h2>Please choose a book you have read:</h2><br>
+
+<form method="post" action="/oprah">
+  <select name="book_id">
+  <% @books.each do |book|%>
+  <option value="<%=book.id%>"><%=book.title%></option> #book id's are unique 
+  <%end%>
+  </select>
+  <input type="submit" value="Add book">
+</form>
+<br>
+<br>
+  <a href="/oprah">Back to Oprah's List</a><br>
+  <a href="/">Back to Homepage</a><br>
+
+
+
