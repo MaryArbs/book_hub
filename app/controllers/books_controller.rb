@@ -15,13 +15,22 @@ class BooksController < ApplicationController
          @my_books = current_user.books
          erb :'book/mybooks'
     end 
+
+    get '/mybooks/new' do 
+        if !logged_in?
+            redirect '/login'
+          end 
+          erb :'books/new'
+        end 
+    end 
     
 
-    # post '/mybooks/new' do  #submit a form to add/create a new book
-    #     @user = current_user
-    #     book = Book.create(params[:book])
-    #     erb :'book/new'
-    # end 
+    post '/mybooks/new' do  #create new save/book already created in scraper
+        @user = current_user
+        book = Save.create(params[:book_id])
+        save.user_id = current_user.id
+        erb :'book/new'
+    end 
       
     
 end 
