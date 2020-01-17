@@ -1,0 +1,24 @@
+<h1>Heartcore Book Hub</h2>
+<h2>So happy you are here! </h2><br>
+<br>
+<h4>Check out Oprah's 'Book Club Picks' below.</h4>
+<h4>Click on a book to learn more about it.</h4><br>
+
+
+<a href="/mybooks">My Books</a>
+
+
+<ol type="1">
+<% @books.each do |book|%>
+    <li><a href="<%=book.profile_url%>" target="_blank"><%=book.title%></a><br>
+    by <%=book.author%></li><br>
+<% end %> 
+</ol>
+
+
+
+
+
+
+
+
