@@ -21,9 +21,11 @@ class BooksController < ApplicationController
     # end 
 
     post '/mybooks'  do  #create new save and add to book list      goodreads.com/books
-        book = Book.find_by(id: params[:id])
-        @book = Save.create( book: book,  user: current_user)
         binding.pry
+        book = Book.find_by(id: params[:id])
+
+        Save.create(book: book,  user: current_user)
+
         redirect "/mybooks"
     end 
 
