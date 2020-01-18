@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect "/oprah_books"
     else
-      redirect "/homepage"
+      redirect "/"
     end
   end
 

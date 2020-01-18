@@ -1,4 +1,4 @@
-class Save < ActiveRecord::Base 
+class Safe < ActiveRecord::Base 
     belongs_to :user
     belongs_to :book
 end 

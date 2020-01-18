@@ -13,19 +13,21 @@ class BooksController < ApplicationController
         erb :'book/new'
     end 
 
-    # get '/mybooks/:book_id' do #go to user's account with their book list
-    #       @user = current_user
-    #       @book = UserBook.find_by(book_id: params[:book_id])
+    get "/mybooks" do 
+        @user = current_user
+        erb :'book/mybooks'
+    end 
+
+    get '/mybooks/:book_id' do #go to user's account with their book list
+          @user = current_user
+          @book = Book.find(params[:book_id])
           
-    #       erb :'book/mybooks' # show book on  user book list
-    # end 
+          erb :'book/show' # show book on  user book list
+    end 
 
     post '/mybooks'  do  #create new save and add to book list      goodreads.com/books
-        binding.pry
-        book = Book.find_by(id: params[:id])
-
+        book = Book.find(params[:book_id])
         Save.create(book: book,  user: current_user)
-
         redirect "/mybooks"
     end 
 
