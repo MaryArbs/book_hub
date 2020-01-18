@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
     erb :homepage
   end 
 
-
  
   helpers do
     def redirect_if_not_logged_in

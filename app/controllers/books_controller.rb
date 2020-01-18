@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+
     get '/oprah' do
         if logged_in?
             @user = current_user
@@ -17,16 +18,14 @@ class BooksController < ApplicationController
     
     get '/oprah/new' do 
         @books = Book.all 
-       erb :'book/new'
+        erb :'book/new'
     end 
 
     post '/oprah' do #create new save and add to book list
-        @user = current_user 
-        @save = Save.create(book_id: params[:book_id], user_id: current_user.id)
-        binding.pry
-        erb :'book/mybooks'
+        book = Book.find_by(id: params[:book_id])
+        save = Save.create(book: book, user: current_user)
+        redirect '/mybooks'
     end 
-    
 
 
     
