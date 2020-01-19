@@ -2,7 +2,7 @@
 <h2>To go back to your book list please click<a href="/mybooks"> here</a><br>
 
 <ol type="1">
-<li><a href="<%=@book.book.profile_url%>" target="_blank"><%=@book.title %></li>
+<li><a href="<%=@book.profile_url%>" target="_blank"><%=@book.title %></li>
 </ol>
 
 <form method="post" action="/mybooks/<%= @book.id %>/delete">

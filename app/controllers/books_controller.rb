@@ -3,13 +3,15 @@ class BooksController < ApplicationController
 
     get '/oprah_books' do
         @user = current_user
-        @books = Book.all  #index showing all Oprah's books
+        @books = Book.all 
+         #index showing all Oprah's books
         erb :'book/oprah'
     end
     
 
     get '/mybooks/new' do  #form to create new book 
         @books = Book.all 
+        
         erb :'book/new'
     end 
 
@@ -31,7 +33,6 @@ class BooksController < ApplicationController
 
     delete '/mybooks/:id/delete' do
         @book = Book.find(params[:id])
-        binding.pry
         @book.delete
         redirect "/mybooks"
     end
