@@ -27,13 +27,14 @@ class BooksController < ApplicationController
     end 
 
     get '/mybooks/:id' do 
-        @book = Book.find(params[:id])
+        book = Book.find(params[:id])
+        @save = Save.find_by(book: book, user: current_user)
         erb :'book/single' # show individual book on page, so user can delete # show page 
     end 
 
     delete '/mybooks/:id/delete' do
-        @book = Book.find(params[:id])
-        @book.delete
+        book = Book.find(params[:id])
+        @save.destroy
         redirect "/mybooks"
     end
 
