@@ -1,16 +1,20 @@
-<h1 style="font-family: Laila"><%= @book.title%></h1>
-<div class="book-details">
-<h4>By:</h4> <%= @book.author%>
-<div id="book-options">
-<% if logged_in? && session[:user_id] == @book.user_id %>
-<br>
-<a href="/mybooks/<%= @book.title %>/edit"><button>Edit Book</button></a>
-<form method="post" action="/mybooks/<%= @book.book_id %>/delete">
+<h2>If you would like to remove this book from your 'read' list, please click delete.</h2>
+<h2>To go back to your book list please click<a href="/mybooks"> here</a><br>
+
+<ol type="1">
+<li><a href="<%=@book.book.profile_url%>" target="_blank"><%=@book.title %></li>
+</ol>
+
+<form method="post" action="/mybooks/<%= @book.id %>/delete">
   <input type="hidden" id="hidden" name="_method" value="delete">
   <button type="submit">Delete Book</button> 
 </form> 
-<% end %>
-</div>
-</div>
 
-<a href="<%=book.profile_url%>" target="_blank"><%=book.title%></a>
+
+
+
+
+
+
+
+

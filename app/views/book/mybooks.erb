@@ -4,7 +4,7 @@
 
 <ol type="1">
 <%@user.books.each do |book|%>
-  <li><%=book.title%><br>  # need to make titles linkable to vew :singles 
+  <li><a href="/mybooks/<%=book.id %>"><%=book.title%></a><br>  
    by <%=book.author%></li><br>
 <% end %>
 </ol>
@@ -13,6 +13,8 @@
 
 <a href="/oprah_books">Back to Oprah's List</a><br>
 
-    
+
+
+
 
 

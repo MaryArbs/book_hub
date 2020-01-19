@@ -18,34 +18,24 @@ class BooksController < ApplicationController
         erb :'book/mybooks'
     end 
 
-    get '/mybooks/:book_id' do #go to user's account with their book list
-          @user = current_user
-          @book = Book.find(params[:book_id])
-          
-          erb :'book/show' # show book on  user book list
+    post '/mybooks'  do  #create new save and add to book list     
+         book = Book.find(params[:book_id])
+         Save.create(book: book,  user: current_user)
+         redirect "/mybooks"
     end 
 
-    post '/mybooks'  do  #create new save and add to book list      goodreads.com/books
-        book = Book.find(params[:book_id])
-        Save.create(book: book,  user: current_user)
-        redirect "/mybooks"
+    get '/mybooks/:id' do 
+        @book = Book.find(params[:id])
+        erb :'book/single' # show individual book on page, so user can delete # show page 
     end 
 
-    get '/mybooks/:book_id' do 
-        @book = Book.find(params[:book_id]) 
-    
-        erb :'/book/single'
-      end 
-
-    delete '/mybooks/:book_id' do
-        Book.destroy(params[:book_id])
+    delete '/mybooks/:id/delete' do
+        @book = Book.find(params[:id])
+        binding.pry
+        @book.delete
         redirect "/mybooks"
     end
 
 end 
 
     
-
-
-#edit by :id
-#delete book 
