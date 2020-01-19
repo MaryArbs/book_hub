@@ -31,6 +31,17 @@ class BooksController < ApplicationController
         redirect "/mybooks"
     end 
 
+    get '/mybooks/:book_id' do 
+        @book = Book.find(params[:book_id]) 
+    
+        erb :'/book/single'
+      end 
+
+    delete '/mybooks/:book_id' do
+        Book.destroy(params[:book_id])
+        redirect "/mybooks"
+    end
+
 end 
 
     

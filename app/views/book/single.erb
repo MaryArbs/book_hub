@@ -1,0 +1,16 @@
+<h1 style="font-family: Laila"><%= @book.title%></h1>
+<div class="book-details">
+<h4>By:</h4> <%= @book.author%>
+<div id="book-options">
+<% if logged_in? && session[:user_id] == @book.user_id %>
+<br>
+<a href="/mybooks/<%= @book.title %>/edit"><button>Edit Book</button></a>
+<form method="post" action="/mybooks/<%= @book.book_id %>/delete">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <button type="submit">Delete Book</button> 
+</form> 
+<% end %>
+</div>
+</div>
+
+<a href="<%=book.profile_url%>" target="_blank"><%=book.title%></a>

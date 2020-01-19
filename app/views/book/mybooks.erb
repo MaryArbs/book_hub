@@ -1,6 +1,18 @@
 <h2><%= @user.username.titleize %>'s Book List:</h2>
+<h4>You've read <%=@user.books.count%> out of 84.</h4>
 
 
-# <%=@user.books%>
+<ol type="1">
+<%@user.books.each do |book|%>
+  <li><%=book.title%><br>  # need to make titles linkable to vew :singles 
+   by <%=book.author%></li><br>
+<% end %>
+</ol>
+
+<a href="/mybooks/new">Add Book</a><br>
+
+<a href="/oprah_books">Back to Oprah's List</a><br>
+
     
+
 
