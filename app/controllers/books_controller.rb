@@ -10,7 +10,9 @@ class BooksController < ApplicationController
     
 
     get '/mybooks/new' do  #form to create new book 
-        @books = Book.all 
+        all_books = Book.all 
+        user_book_ids = current_user.books.map{|book| book.id}
+        @books = all_books.reject{|book|  user_book_ids.include? book.id }
         
         erb :'book/new'
     end 
@@ -34,7 +36,10 @@ class BooksController < ApplicationController
 
     delete '/mybooks/:id/delete' do
         book = Book.find(params[:id])
+        @save = Save.find_by(book: book, user: current_user)
+        if @save 
         @save.destroy
+        end 
         redirect "/mybooks"
     end
 
