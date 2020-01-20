@@ -1,9 +1,9 @@
-<h4><a href="/">Home</a> | <a href="/oprah_books">Oprah's Books</a> |   <a href="/mybooks">My Books</a> |  <a href="/mybooks/new">Add Book</a> |   <a href="/logout">Log Out</a></h4><br>
+<h4><a href="/">Home</a> | <a href="/oprah_books">Oprah's Books</a>  |   <a href="/mybooks">My Books</a> |  <a href="/mybooks/new">Add Book</a> |   <a href="/logout">Log Out</a></h4><br>
 
 
 <h3>
 <ol type="1">
-<li><a href="<%=@save.book.profile_url%>" target="_blank"><%=@save.book.title %></li>
+ <li><a href="<%=@save.book.profile_url%>" target="_blank"><%=@save.book.title %></li>
 </ol></h3>
 
 <form method="post" action="/mybooks/<%= @save.book.id %>/delete">

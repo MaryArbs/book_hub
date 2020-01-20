@@ -3,7 +3,6 @@
 <h2><%= @user.username.titleize %>'s Book List:<br>
 (You've read <%=@user.books.count%> out of 84 books)</h2>
 
-
   <ol type="1">
    <%@user.books.each do |book|%>
    <li><a href="/mybooks/<%=book.id %>"><%=book.title%></a><br>  
