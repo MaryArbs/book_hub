@@ -2,14 +2,17 @@ class BooksController < ApplicationController
 
 
     get '/oprah_books' do
-        @user = current_user
+        if logged_in? 
+           @user = current_user
+        end 
         @books = Book.all 
          #index showing all Oprah's books
         erb :'book/oprah'
+    
     end
     
 
-    get '/mybooks/new' do  #form to create new book 
+    get '/mybooks/new' do   #form to create new book  #if user_book.id matching book.id it will reject 
         all_books = Book.all 
         user_book_ids = current_user.books.map{|book| book.id}
         @books = all_books.reject{|book|  user_book_ids.include? book.id }
@@ -18,6 +21,9 @@ class BooksController < ApplicationController
     end 
 
     get "/mybooks" do 
+        if !logged_in?
+           redirect '/login'
+        end 
         @user = current_user
         erb :'book/mybooks'
     end 
