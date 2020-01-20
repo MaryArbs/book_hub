@@ -22,8 +22,9 @@ class ApplicationController < Sinatra::Base
         !!current_user
     end
 
-    def current_user # if a is undefined or falsey, then evaluate b and set a to the result. Equivalently, if a is defined and evaluates to truthy, then b is not evaluated, and no assignment takes place.
+    def current_user 
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        # if a is undefined or falsey, then evaluate b and set a to the result. Equivalently, if a is defined and evaluates to truthy, then b is not evaluated, and no assignment takes place.
        end
     end
   end 
