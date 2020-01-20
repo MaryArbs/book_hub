@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     else
       redirect "/signup"
     end
+  end 
     
     
   get '/signup' do
