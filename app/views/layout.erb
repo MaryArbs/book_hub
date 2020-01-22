@@ -10,14 +10,20 @@
   </head>
   <body>
     <div class="wrapper">
-
-        <%= yield %>
+      <a href="/">Home</a> |
+      <a href="/oprah_books">Oprah's Books</a> |
+      <a href="/mybooks">My Books</a> |
+      <a href="/mybooks/new">Add Book</a> |
+      <a href="/logout">Log Out</a>
+    <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>Heartcore Book Hub</strong></small>
       </footer>
     </div>
-    
+   
+
+   
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
