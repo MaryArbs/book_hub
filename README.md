@@ -1,5 +1,4 @@
 <h1>Heartcore Book Hub<h1>
-<hr>
 
 Heartcore Book Hub allows you to track which books from 'Oprah's Book Club Pick' you have read. Built with Ruby, Sinatra, ActiveRecord, etc.
 
@@ -7,7 +6,7 @@ With Heartcore Book Hub you can create an account, view 'Oprah's Book Club Picks
 
 
 <h1>To run this app</h1>
-Fork and clone this repo.
+Fork and clone this repo. <br>
 
 cd into the project folder.
 
