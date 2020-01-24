@@ -36,8 +36,12 @@ class BooksController < ApplicationController
             redirect '/login'
         end     
         book = Book.find(params[:book_id])
-        Save.create(book: book,  user: current_user)
+        @save = Save.new(book: book,  user: current_user)
+        if @save.save
         redirect "/mybooks"
+        else
+        redirect '/mybooks/new'
+        end 
     end 
 
     get '/mybooks/:id' do 
